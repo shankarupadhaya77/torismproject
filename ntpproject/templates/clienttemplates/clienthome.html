@@ -1,0 +1,178 @@
+{% extends 'clienttemplates/clientbase.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+{% block clienthome %}active{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content  %}
+<div class="w3-slider">	
+	<!-- main-slider -->
+		<ul id="demo1">
+			{% for slider in sliders %}
+			<li>
+				<img src="{{slider.image.url}}" alt="" />
+				<!--Slider Description example-->
+				<div class="slide-desc">
+					<h3>{{slider.title}}</h3>
+					<p>{{slider.details}} </p>
+				</div>
+			</li>
+			{% endfor %}
+			
+			
+		</ul>
+	</div>
+	<!-- //main-slider -->
+		<div class="container">
+		<div class="banner-btm-agile">
+		<!-- //btm-wthree-left -->
+			<div class="col-md-9 btm-wthree-left">
+				{% for blog in blogs %}
+				<div class="wthree-top">
+					<div class="w3agile-top">
+						<div class="w3agile_special_deals_grid_left_grid">
+							<a href="{% url 'ntpapp:clientblogdetail' blog.id %}"><img src="{{blog.image.url}}" class="img-responsive" alt="" /></a>
+						</div>
+						<div class="w3agile-middle">
+						<ul>
+							<li><a href="{% url 'ntpapp:clientblogdetail' blog.id %}"><i class="fa fa-calendar" aria-hidden="true"></i>{{blog.created_at}}</a></li>
+							
+						</ul>
+					</div>
+					</div>
+					
+					<div class="w3agile-bottom">
+						<div class="col-md-3 w3agile-left">
+							<h5>Author: {{blog.author}}</h5>
+						</div>
+						<div class="col-md-9 w3agile-right">
+							<h3><a href="{% url 'ntpapp:clientblogdetail' blog.id %}">{{blog.title}} </a></h3>
+							{{blog.details|striptags|safe|truncatewords:"100"}}
+							<a class="agileits w3layouts" href="{% url 'ntpapp:clientblogdetail' blog.id %}">Read More <span class="glyphicon agileits w3layouts glyphicon-arrow-right" aria-hidden="true"></span></a>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- wthree-top-1 -->
+			
+			</div>
+			<!-- //btm-wthree-left -->
+				<!-- btm-wthree-right -->
+			<div class="col-md-3 w3agile_blog_left">
+				<div class="wthreesearch">
+							<form action="#" method="post">
+								<input type="search" name="Search" placeholder="Search here" required="">
+								<button type="submit" class="btn btn-default search" aria-label="Left Align">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						
+				</div>
+				
+				<div class="agileinfo_calender">
+                <div class="agileinfo_calender">
+				<h3>CONNECT SOCIALLY</h3>
+				<div class="w3ls-social-icons-1">
+					<a class="pinterest" href="//pinterest.com"><i class="fa fa-pinterest-p"></i></a>
+					<a class="linkedin" href="//linkedin.com"><i class="fa fa-linkedin"></i></a>
+					<a class="google-plus" href="google-plus.com//"><i class="fa fa-google-plus"></i></a>
+					<a class="youtub" href="//youtube.com"><i class="fa fa-behance"></i></a>
+				</div>
+				</div>
+				<div class="w3ls_popular_posts">
+					<h3>Popular Posts</h3>
+					<div class="agileits_popular_posts_grid">
+						<div class="w3agile_special_deals_grid_left_grid">
+							<a href="singlepage.html"><img src="{% static 'clientstatic/images/p1.jpg' %}" class="img-responsive" alt="" /></a>
+						</div>
+						<h4><a href="singlepage.html"></a></h4>
+						<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2019</h5>
+					</div>
+					<div class="agileits_popular_posts_grid">
+						<div class="w3agile_special_deals_grid_left_grid">
+								<a href="singlepage.html"><img src="{% static 'clientstatic/images/p2.jpg' %}" class="img-responsive" alt="" /></a>
+							</div>
+						<h4><a href="mounterring.com">Mountaring in Nepal</a></h4>
+						<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2019</h5>
+					</div>
+					<div class="agileits_popular_posts_grid">
+						<div class="w3agile_special_deals_grid_left_grid">
+								<a href="singlepage.html"><img src="{% static 'clientstatic/images/p3.jpg' %}" class="img-responsive" alt="" /></a>
+						</div>
+						<h4><a href="singlepage.html"></a></h4>
+						<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2017</h5>
+					</div>
+				</div>
+				
+				<div class="w3l_categories">
+					<h3>Categories</h3>
+					<ul>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Annupurna trakking</a></li>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Hunting at suklaphata</a></li>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Everest climbing</a></li>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Snowfall in Jomsome</a></li>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Mustang trakking</a></li>
+						<li><a href="singlepage.html"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>Limi vallege in Humla </a></li>
+					</ul>
+				</div>
+			<div class="w3ls_recent_posts">
+					<h3>Recent Posts</h3>
+					<div class="agileits_recent_posts_grid">
+						<div class="agileits_recent_posts_gridl">
+							<div class="w3agile_special_deals_grid_left_grid">
+									<a href="singlepage.html"><img src="{% static 'clientstatic/images/r1.jpg' %}" class="img-responsive" alt="" /></a>
+								</div>
+						</div>
+						<div class="agileits_recent_posts_gridr">
+							<h4><a href="singlepage.html">Pokhara and its beauty</a></h4>
+							<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2019</h5>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="agileits_recent_posts_grid">
+						<div class="agileits_recent_posts_gridl">
+							<div class="w3agile_special_deals_grid_left_grid">
+									<a href="singlepage.html"><img src="{% static 'clientstatic/images/r2.jpg' %}" class="img-responsive" alt="" /></a>
+								</div>
+						</div>
+						<div class="agileits_recent_posts_gridr">
+							<h4><a href="singlepage.html">poonhill and its sunrising </a></h4>
+							<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2019</h5>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="agileits_recent_posts_grid">
+						<div class="agileits_recent_posts_gridl">
+							<div class="w3agile_special_deals_grid_left_grid">
+									<a href="singlepage.html"><img src="{% static 'clientstatic/images/r3.jpg' %}" class="img-responsive" alt="" /></a>
+								</div>
+						</div>
+						<div class="agileits_recent_posts_gridr">
+							<h4><a href="singlepage.html">Lord buddha and lumbini </a></h4>
+							<h5><i class="fa fa-calendar" aria-hidden="true"></i>FEB 15,2019</h5>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			<div class="w3l_tags">
+					<h3>Tags</h3>
+					<ul class="tag">
+						<li><a href="singlepage.html">Photography</a></li>
+						<li><a href="singlepage.html">Restaurant</a></li>
+					</ul>
+				</div>
+			</div>
+
+	</div>
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}
